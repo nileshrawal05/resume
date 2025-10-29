@@ -1,0 +1,115 @@
+%-------------------------
+% Resume in LaTeX
+% Author : Nilesh Rawal
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.25in}
+\addtolength{\textwidth}{0.5in}
+\addtolength{\topmargin}{-.3in}
+\addtolength{\textheight}{0.8in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\titlerule\vspace{-5pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-5pt}
+}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]} 
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=1.5em]} 
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{center}
+    {\Huge \textbf{Nilesh Rawal}} \\[4pt]
+    \href{mailto:rawalnilesh03@gmail.com}{rawalnilesh03@gmail.com} $|$
+    +91 8237771166 $|$
+    \href{https://linkedin.com/in/nileshrawal05}{linkedin.com/in/nileshrawal05} $|$
+    \href{https://github.com/nileshrawal05}{github.com/nileshrawal05}
+\end{center}
+
+%-----------SUMMARY-----------------
+\section{Summary}
+Embedded Software Engineer with hands-on experience in platform bring-up, device driver development, and system integration across Embedded Linux, QNX, and Android on ARM64 and x86 platforms. Skilled in kernel-level debugging, network driver development (XGMAC on QNX), and Android display bring-up on virtual ARM SoCs. Experienced in diagnosing and resolving issues across the kernel-to-userspace stack, optimizing networking and system performance.
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Embedded Software Engineer}{Jul 2022 – Present}
+{Vayavya Labs Pvt. Ltd.}{Belagavi, IN}
+
+\resumeItemListStart
+\resumeItem{Developed and integrated device drivers (Ethernet, UART, SPI) across QNX and Linux platforms on ARM64 and x86 architectures.}
+\resumeItem{Contributed to Android platform bring-up on virtual ARM64 SoC, focusing on kernel-to-userspace debugging and issue resolution across JNI, DRM, and graphics layers.}
+\resumeItem{Worked on EDMA (10G NIC) driver development across QNX and Linux, covering initialization, data path implementation, and performance optimization.}
+\resumeItem{Build and customize Buildroot and Android build environments for platform adaptation.}
+\resumeItem{Performed driver testing, debugging, and performance analysis using tools like GDB, strace, ftrace, and ktrace, ensuring stability and throughput optimization.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------KEY PROJECTS-----------------
+\section{Key Projects}
+\resumeItemListStart
+\resumeItem{\textbf{Android Display \& Platform Bring-up – ARM Cortex Virtual SoC:}
+Brought up Android display subsystem from kernel to HAL and userspace integration. Debugged kernel-level graphics pipeline and stabilized frame rendering and buffer management using \textbf{libdrm} and \textbf{OpenGL ES}. Integrated display stack with DRM, HAL, and Android framework layers. Customized Buildroot and AOSP builds to reproduce and debug boot and graphics failures. Performed low-level debugging (assembly, SoC timing, and configuration) to resolve hardware-level issues. Partnered with firmware and verification teams for validation and regression testing.}
+
+\resumeItem{\textbf{EDMA / 10GbE Driver Development – QNX 7.1 (ARM64):}
+Designed and implemented an EDMA-accelerated 10GbE Ethernet driver using \textbf{io-sock} and \textbf{iflib}. Ported core network stack mechanisms (interrupt handling via MSI-X, DMA descriptor management) from Linux to QNX. Implemented optimized buffer allocation and scatter-gather DMA for high throughput. Refactored driver for direct network stack integration, reducing software overhead. Validated DMA and interrupt performance using profiling and system-level testing on ARM64 hardware. Developed automated test suites to verify TX/RX data path efficiency and reliability.}
+\resumeItemListEnd
+
+%-----------TECHNICAL SKILLS-----------------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.3in, label={}]
+  \item \textbf{Languages:} C, C++, Embedded C, Shell Script
+  \item \textbf{Platforms:} QNX, FreeBSD, Embedded Linux, Android (AOSP)
+  \item \textbf{Drivers:} UART, Ethernet (io-sock, iflib), Display (libdrm, HAL)
+  \item \textbf{Build Systems:} GCC, QCC, Buildroot, Yocto, U-Boot, AOSP
+  \item \textbf{Tools:} Git, GDB, KGDB, strace, ftrace, perf, objdump
+  \item \textbf{Debugging:} LLDB, Perfetto, ktrace, JTAG, Segger J-Link
+  \item \textbf{Protocols:} UART, SPI, I2C, CAN, VLAN, ARP, TCP/IP
+\end{itemize}
+
+%-----------EDUCATION-----------------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Post Graduate Diploma in Embedded Systems and Design}{2023}
+{Centre for Development of Advanced Computing (C-DAC)}{Pune, IN}
+\resumeSubheading
+{Bachelor of Technology in Electrical Engineering}{2022}
+{Sant Gajanan Maharaj College of Engineering}{Mahagaon, IN}
+\resumeSubHeadingListEnd
+
+\end{document}
+
