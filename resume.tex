@@ -38,9 +38,9 @@
     \textit{\small#3} & \textit{\small #4} \\
   \end{tabular*}\vspace{-5pt}
 }
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]} 
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=1.5em]} 
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=1.5em]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
@@ -59,45 +59,49 @@
 
 %-----------SUMMARY-----------------
 \section{Summary}
-Embedded Software Engineer with hands-on experience in platform bring-up, device driver development, and system integration across Embedded Linux, QNX, and Android on ARM64 and x86 platforms. Skilled in kernel-level debugging, network driver development (XGMAC on QNX), and Android display bring-up on virtual ARM SoCs. Experienced in diagnosing and resolving issues across the kernel-to-userspace stack, optimizing networking and system performance.
+Embedded Software Engineer with 2+ years of experience in device driver development, board bring-up, and system-level debugging on ARM-based embedded platforms. Strong in C/C++, Linux kernel internals, Device Tree, DMA, and interrupt handling. Experienced in developing network drivers on QNX and debugging Android boot sequences on virtual ARM SoCs. Skilled in building and customizing Embedded Linux distributions using Buildroot and AOSP with Git-based workflows.
+
 %-----------EXPERIENCE-----------------
 \section{Experience}
 \resumeSubHeadingListStart
 
 \resumeSubheading
-{Embedded Software Engineer}{Jul 2022 – Present}
-{Vayavya Labs Pvt. Ltd.}{Belagavi, IN}
+{Embedded Software Engineer}{April 2024 -- Present}
+{Vayavya Labs Pvt. Ltd.}{Belagavi, India}
 
+\vspace{4pt}
+\textit{\small \textbf{EDMA / 10GbE Ethernet Driver -- QNX 7.1 / Linux (x86)}}
 \resumeItemListStart
-\resumeItem{Developed and integrated device drivers (Ethernet, UART, SPI) across QNX and Linux platforms on ARM64 and x86 architectures.}
-\resumeItem{Contributed to Android platform bring-up on virtual ARM64 SoC, focusing on kernel-to-userspace debugging and issue resolution across JNI, DRM, and graphics layers.}
-\resumeItem{Worked on EDMA (10G NIC) driver development across QNX and Linux, covering initialization, data path implementation, and performance optimization.}
-\resumeItem{Build and customize Buildroot and Android build environments for platform adaptation.}
-\resumeItem{Performed driver testing, debugging, and performance analysis using tools like GDB, strace, ftrace, and ktrace, ensuring stability and throughput optimization.}
+\resumeItem{Developed and ported a 10GbE Ethernet driver for x86 on QNX 7.1 microkernel, implementing EDMA-based packet processing and integrating with io-sock networking stack and iflib framework.}
+\resumeItem{Implemented driver initialization (PCI BAR mapping, MAC/PHY setup, firmware handshake), TX/RX descriptor ring management with DMA-mapped buffers, and MSI-X interrupt handling for per-queue delivery.}
+\resumeItem{Ported Linux driver subsystems (DMA descriptor lifecycle, interrupt coalescing, scatter-gather DMA, buffer recycling) to QNX resource manager architecture, resolving cache coherency and memory mapping differences.}
+\resumeItem{Debugged data path issues (stale descriptors, DMA alignment faults, dropped packets under load) using register dumps, packet captures, and QNX ktrace/tracelogger.}
+\resumeItem{Validated driver stability and throughput using iperf, custom TX/RX stress tests, and sustained line-rate traffic generation on x86 hardware.}
+\resumeItemListEnd
+
+\vspace{4pt}
+\textit{\small \textbf{Android Platform Bring-up \& Boot Debugging -- ARM Cortex-A Virtual SoC}}
+\resumeItemListStart
+\resumeItem{Debugged and resolved Android boot failures on a virtual ARM64 SoC, tracing issues across the full boot sequence from bootloader through kernel init, Zygote, and SystemServer startup.}
+\resumeItem{Diagnosed critical Zygote crash by analyzing tombstone logs and instrumenting AOSP source with debug prints; traced the root cause to an unhandled BLR LR instruction in the virtual SoC's ARM64 instruction emulation layer.}
+\resumeItem{Resolved init process failures including service launch ordering issues, SELinux policy denials, Device Tree misconfigurations, and interrupt routing errors blocking kernel handoff to Android userspace.}
+\resumeItem{Verified end-to-end boot validation including display pipeline readiness (DRM/KMS, HWC HAL, gralloc, SurfaceFlinger) after boot stabilization.}
+\resumeItem{Customized AOSP and Buildroot configurations for the virtual ARM64 target, bisected regressions across kernel and framework commits using Git, and validated fixes through targeted test suites.}
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
-
-%-----------KEY PROJECTS-----------------
-\section{Key Projects}
-\resumeItemListStart
-\resumeItem{\textbf{Android Display \& Platform Bring-up – ARM Cortex Virtual SoC:}
-Brought up Android display subsystem from kernel to HAL and userspace integration. Debugged kernel-level graphics pipeline and stabilized frame rendering and buffer management using \textbf{libdrm} and \textbf{OpenGL ES}. Integrated display stack with DRM, HAL, and Android framework layers. Customized Buildroot and AOSP builds to reproduce and debug boot and graphics failures. Performed low-level debugging (assembly, SoC timing, and configuration) to resolve hardware-level issues. Partnered with firmware and verification teams for validation and regression testing.}
-
-\resumeItem{\textbf{EDMA / 10GbE Driver Development – QNX 7.1 (ARM64):}
-Designed and implemented an EDMA-accelerated 10GbE Ethernet driver using \textbf{io-sock} and \textbf{iflib}. Ported core network stack mechanisms (interrupt handling via MSI-X, DMA descriptor management) from Linux to QNX. Implemented optimized buffer allocation and scatter-gather DMA for high throughput. Refactored driver for direct network stack integration, reducing software overhead. Validated DMA and interrupt performance using profiling and system-level testing on ARM64 hardware. Developed automated test suites to verify TX/RX data path efficiency and reliability.}
-\resumeItemListEnd
 
 %-----------TECHNICAL SKILLS-----------------
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.3in, label={}]
   \item \textbf{Languages:} C, C++, Embedded C, Shell Script
-  \item \textbf{Platforms:} QNX, FreeBSD, Embedded Linux, Android (AOSP)
-  \item \textbf{Drivers:} UART, Ethernet (io-sock, iflib), Display (libdrm, HAL)
-  \item \textbf{Build Systems:} GCC, QCC, Buildroot, Yocto, U-Boot, AOSP
-  \item \textbf{Tools:} Git, GDB, KGDB, strace, ftrace, perf, objdump
-  \item \textbf{Debugging:} LLDB, Perfetto, ktrace, JTAG, Segger J-Link
-  \item \textbf{Protocols:} UART, SPI, I2C, CAN, VLAN, ARP, TCP/IP
+  \item \textbf{Operating Systems:} Embedded Linux, QNX, Android (AOSP), FreeRTOS, FreeBSD
+  \item \textbf{Kernel \& Drivers:} Device Driver Development, Kernel Modules, Device Tree, DMA, Interrupt Handling, Memory Management, Board Bring-up, BSP Development
+  \item \textbf{Peripherals \& Protocols:} UART, SPI, I2C, Ethernet, TCP/IP, MQTT
+  \item \textbf{Build Systems:} Buildroot, AOSP, GCC, U-Boot, Makefile, Cross-compilation
+  \item \textbf{Debugging:} GDB, KGDB, strace, ftrace, perf, objdump, logcat, JTAG, Segger J-Link, QEMU
+  \item \textbf{Architectures:} ARM Cortex-A/M, RISC-V, x86
+  \item \textbf{Tools:} Git, Perfetto, ktrace
 \end{itemize}
 
 %-----------EDUCATION-----------------
@@ -105,11 +109,10 @@ Designed and implemented an EDMA-accelerated 10GbE Ethernet driver using \textbf
 \resumeSubHeadingListStart
 \resumeSubheading
 {Post Graduate Diploma in Embedded Systems and Design}{2023}
-{Centre for Development of Advanced Computing (C-DAC)}{Pune, IN}
+{Centre for Development of Advanced Computing (C-DAC)}{Pune, India}
 \resumeSubheading
 {Bachelor of Technology in Electrical Engineering}{2022}
-{Sant Gajanan Maharaj College of Engineering}{Mahagaon, IN}
+{Sant Gajanan Maharaj College of Engineering}{Mahagaon, India}
 \resumeSubHeadingListEnd
 
 \end{document}
-
